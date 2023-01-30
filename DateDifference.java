@@ -62,7 +62,21 @@ class DateDifference
         int endDays = dcal.sumDaysEndYear(dd1,mm1,yy1,dd2,mm2,yy2);
         int daysBetweenYears = dcal.yearCount(yy1,yy2);
         int totalNoOfDays = (startDays+endDays+daysBetweenYears);
-        System.out.println("Total Number of days between "+dd1+"/"+mm1+"/"+yy1+" and "+dd2+"/"+mm2+"/"+yy2+" are "+totalNoOfDays);
+        if(yy1==yy2)
+        {
+            if(((yy1 % 4 == 0) && ((yy1 % 400 == 0) || (yy1%100 != 0))))
+            {
+                System.out.println("Total Number of days between "+dd1+"/"+mm1+"/"+yy1+" and "+dd2+"/"+mm2+"/"+yy2+" are "+(totalNoOfDays-366));
+            }
+            else
+            {
+                System.out.println("Total Number of days between "+dd1+"/"+mm1+"/"+yy1+" and "+dd2+"/"+mm2+"/"+yy2+" are "+(totalNoOfDays-365));
+            }        
+        }
+        else
+        {
+            System.out.println("Total Number of days between "+dd1+"/"+mm1+"/"+yy1+" and "+dd2+"/"+mm2+"/"+yy2+" are "+totalNoOfDays);
+        }
     }
 }
 class dateChecker
